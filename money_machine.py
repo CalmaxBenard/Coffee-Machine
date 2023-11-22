@@ -23,4 +23,16 @@ class MoneyMachine:
             self.money_received += int(input(f"How many {coin}? ")) * self.COIN_VALUES[coin]
         return self.money_received
 
+    def make_payment(self, cost):
+        self.process_coins()
 
+        if self.money_received >= cost:
+            change = round(self.money_received - cost, 2)
+            print(f"Here is {self.CURRENCY}{change} in change.")
+            self.profit += cost
+            self.money_received = 0
+            return True
+        else:
+            print("Sorry that's not enough. Money refunded.")
+            self.money_received = 0
+            return False
