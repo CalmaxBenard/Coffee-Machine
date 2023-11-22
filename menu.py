@@ -19,4 +19,11 @@ class Menu:
             MenuItem(name="cappuccino", water=250, milk=50, coffee=24, cost=3)
         ]
 
+    def get_items(self):
+        """Returns all the names of available menu items"""
+        options = ""
+        for item in self.menu:
+            options += f"{item.name}/"
+        return options
+
 
